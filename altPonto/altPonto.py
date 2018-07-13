@@ -5,7 +5,7 @@ driver= '{ODBC Driver 17 for SQL Server}'
 conn = pyodbc.connect(
     Trusted_Connection='Yes',
     Driver='{ODBC Driver 17 for SQL Server}',
-    Server='srv-vibpan01',
+    Server='srv-servidor',
     Database='sistemas'
 )
 cursor = conn.cursor()
