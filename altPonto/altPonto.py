@@ -23,6 +23,7 @@ dia = input('Digite o dia: ')
 cursor.execute("SELECT * FROM registro WHERE YEAR(data) = 2018 AND MONTH(data) = '%s' AND DAY(data) = '%s' AND usuario_id = '%s'" % (mes,dia,id))
 row = cursor.fetchone()
 while row:
+    id1 = row[0]
     print (str(row[0]) + " " + str(row[2]) + " " + str(row[3]) + " " + str(row[4]) + " " + str(row[5]))
     row = cursor.fetchone()
 
@@ -32,7 +33,6 @@ esc = input('Digite o numero da opção: 1 - primeiro horario, 2 - segundo horar
 if esc == '1':
     esc2 = input("Insira 's' para inserir horario ou 'n' para valores nulos: ")
     if esc2 == 's':
-        id1 = input('Digite o id da data: ')
         print('Ex: 2018-05-24 07:25:07.340')
         data = input('Digite o horario: ')
         cursor.execute("BEGIN TRANSACTION")
@@ -56,7 +56,6 @@ if esc == '1':
                 row = cursor.fetchone()
             conn.close
     if esc2 == 'n':
-        id1 = input('Digite o id da data: ')
         cursor.execute("BEGIN TRANSACTION")
         cursor.execute("UPDATE registro set  data1 = null where id = '%s'" % (id1)) 
         cursor.execute("SELECT * FROM registro WHERE YEAR(data) = 2018 AND MONTH(data) = '%s' AND DAY(data) = '%s' AND usuario_id = '%s'" % (mes,dia,id))
@@ -82,7 +81,6 @@ if esc == '1':
 if esc == '2':
     esc2 = input("Insira 's' para inserir horario ou 'n' para valores nulos: ")
     if esc2 == 's':
-        id1 = input('Digite o id da data: ')
         print('Ex: 2018-05-24 11:30:07.340')
         data = input('Digite o horario: ')
         cursor.execute("BEGIN TRANSACTION")
@@ -106,7 +104,6 @@ if esc == '2':
                 row = cursor.fetchone()
             conn.close
     if esc2 == 'n':
-        id1 = input('Digite o id da data: ')
         cursor.execute("BEGIN TRANSACTION")
         cursor.execute("UPDATE registro set  data2 = null where id = '%s'" % (id1)) 
         cursor.execute("SELECT * FROM registro WHERE YEAR(data) = 2018 AND MONTH(data) = '%s' AND DAY(data) = '%s' AND usuario_id = '%s'" % (mes,dia,id))
@@ -131,7 +128,6 @@ if esc == '2':
 if esc == '3':
     esc2 = input("Insira 's' para inserir horario ou 'n' para valores nulos: ")
     if esc2 == 's':
-        id1 = input('Digite o id da data: ')
         print('Ex: 2018-05-24 12:30:07.340')
         data = input('Digite o horario: ')
         cursor.execute("BEGIN TRANSACTION")
@@ -155,7 +151,6 @@ if esc == '3':
                 row = cursor.fetchone()
             conn.close
     if esc2 == 'n':
-        id1 = input('Digite o id da data: ')
         cursor.execute("BEGIN TRANSACTION")
         cursor.execute("UPDATE registro set  data3 = null where id = '%s'" % (id1)) 
         cursor.execute("SELECT * FROM registro WHERE YEAR(data) = 2018 AND MONTH(data) = '%s' AND DAY(data) = '%s' AND usuario_id = '%s'" % (mes,dia,id))
@@ -180,7 +175,6 @@ if esc == '3':
 if esc == '4':
     esc2 = input("Insira 's' para inserir horario ou 'n' para valores nulos: ")
     if esc2 == 's':
-        id1 = input('Digite o id da data: ')
         print('Ex: 2018-05-24 12:30:07.340')
         data = input('Digite o horario: ')
         cursor.execute("BEGIN TRANSACTION")
@@ -204,7 +198,6 @@ if esc == '4':
                 row = cursor.fetchone()
             conn.close
     if esc2 == 'n':
-        id1 = input('Digite o id da data: ')
         cursor.execute("BEGIN TRANSACTION")
         cursor.execute("UPDATE registro set  data4 = null where id = '%s'" % (id1)) 
         cursor.execute("SELECT * FROM registro WHERE YEAR(data) = 2018 AND MONTH(data) = '%s' AND DAY(data) = '%s' AND usuario_id = '%s'" % (mes,dia,id))
@@ -228,7 +221,6 @@ if esc == '4':
     
 
 if esc == '5':
-    id1 = input('Digite o id da data: ')
     print('Ex: 2018-05-24 07:25:07.340')
     data = input('Digite o horario: ')
     data1 = input('Digite o horario: ')
@@ -254,7 +246,6 @@ if esc == '5':
         conn.close
 
 if esc == '6':
-    id1 = input('Digite o id da data: ')
     print('Ex: 2018-05-24 07:25:07.340')
     data2 = input('Digite o horario: ')
     data3 = input('Digite o horario: ')
@@ -280,12 +271,11 @@ if esc == '6':
        conn.close
 
 if esc == '7':
-    id1 = input('Digite o id da data: ')
     print('Ex: 2018-05-24 07:25:07.340')
     data = input('Digite o horario: ')
     data1 = input('Digite o horario: ')
     cursor.execute("BEGIN TRANSACTION")
-    cursor.execute("UPDATE registro set  data3 = '%s', data4 = '%s' where id = '%s'" % (data,id1,id2))
+    cursor.execute("UPDATE registro set  data3 = '%s', data4 = '%s' where id = '%s'" % (data,data1,id1))
     cursor.execute("SELECT * FROM registro WHERE YEAR(data) = 2018 AND MONTH(data) = '%s' AND DAY(data) = '%s' AND usuario_id = '%s'" % (mes,dia,id))
     row = cursor.fetchone()
     while row:
