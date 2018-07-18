@@ -5,8 +5,8 @@ driver= '{ODBC Driver 17 for SQL Server}'
 conn = pyodbc.connect(
     Trusted_Connection='Yes',
     Driver='{ODBC Driver 17 for SQL Server}',
-    Server='srv-vibpan01',
-    Database='sistemas'
+    Server='nomeServer',
+    Database='nomeBanco'
 )
 cursor = conn.cursor()
 cursor.execute("SELECT * from usuario WHERE login like '%s'" % nome)
