@@ -5,18 +5,19 @@ driver= '{ODBC Driver 17 for SQL Server}'
 conn = pyodbc.connect(
     Trusted_Connection='Yes',
     Driver='{ODBC Driver 17 for SQL Server}',
-    Server='srv-servidor',
+    Server='srv-vibpan01',
     Database='sistemas'
 )
 cursor = conn.cursor()
 cursor.execute("SELECT * from usuario WHERE login like '%s'" % nome)
 row = cursor.fetchone()
 while row:
+    id = str(row[0])
     print (str(row[0]) + " " + str(row[1]))
     row = cursor.fetchone()
     
 
-id = input('Digite o id: ')
+
 mes = input('Digite o mês: ')
 dia = input('Digite o dia: ')
 
